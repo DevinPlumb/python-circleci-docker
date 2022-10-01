@@ -3,9 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.9.0
-        auth:
-          username: devinplumb
-          password: $DOCKERHUB_PASSWORD
         environment:
           FLASK_CONFIG: testing
     steps:
