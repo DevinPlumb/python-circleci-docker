@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.9.0
+        auth:
+          username: devinplumb
+          password: $DOCKERHUB_PASSWORD
         environment:
           FLASK_CONFIG: testing
     steps:
@@ -22,7 +25,7 @@ jobs:
           name: Run Tests
           command: |
             . helloworld/bin/activate
-            python test_hello_world.py
+            python3 test_hello_world.py
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
